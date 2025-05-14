@@ -12,7 +12,7 @@ criaCartao(
 
 criaCartao(
     'Programação',
-    'Como se abre uma variavel em uim projeto javascript',
+    'Como se abre uma variavel em um projeto javascript',
     'Utilizando o comando "IF" na programação'
 )
 
