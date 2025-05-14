@@ -12,8 +12,8 @@ criaCartao(
 
 criaCartao(
     'Programação',
-    '',
-    ''
+    'Como se abre uma variavel em uim projeto javascript',
+    'Utilizando o comando "IF" na programação'
 )
 
 criaCartao(
