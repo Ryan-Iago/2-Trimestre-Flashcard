@@ -19,11 +19,23 @@ function criaCartao(categoria, pergunta, resposta) {
 
     function viraCartao() {
         respostaEstaVisivel = !respostaEstaVisivel
+        
+        // Se o cartão for de senha e estiver sendo aberto, gera uma senha nova em tempo real!
+        if (respostaEstaVisivel && categoria.toLowerCase().includes('senha') && typeof gerarSenhaAleatoria === 'function') {
+            // Descobre o tamanho da senha lendo o texto da pergunta (ex: "senha 50 Caracteres" -> 50)
+            const numerosNaPergunta = pergunta.match(/\d+/);
+            const tamanho = numerosNaPergunta ? parseInt(numerosNaPergunta[0]) : 15;
+            
+            // Atualiza o parágrafo da resposta com uma senha novinha
+            const paragrafoResposta = cartao.querySelector('.cartao__conteudo__resposta p');
+            if (paragrafoResposta) {
+                paragrafoResposta.textContent = gerarSenhaAleatoria(tamanho);
+            }
+        }
+
         cartao.classList.toggle('active', respostaEstaVisivel)
     }
     cartao.addEventListener('click', viraCartao)
 
-
     container.appendChild(cartao)
-
 }
